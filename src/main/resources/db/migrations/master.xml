@@ -8,6 +8,12 @@
 
     <changeSet id="1" author="Thlkt">
 
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="line"/>
+            </not>
+        </preConditions>
+
         <createTable tableName="line">
             <column name="id" type="int" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
