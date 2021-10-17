@@ -1,10 +1,15 @@
 package com.example.geometry.model;
 
-import lombok.*;
+import com.vividsolutions.jts.geom.Geometry;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
+
 
 @Entity
 @AllArgsConstructor
@@ -18,6 +23,5 @@ public class Line implements Serializable {
 
     private int length;
 
-    private String geometry;
-
+    private Geometry geometry;
 }
