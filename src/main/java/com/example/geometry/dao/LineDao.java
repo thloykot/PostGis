@@ -4,6 +4,12 @@ import com.example.geometry.model.Line;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-@Repository
-public interface LineDao extends JpaRepository<Line,Integer> {
+import java.util.Optional;
+
+
+public interface LineDao{
+
+    int save(Line line);
+
+    Optional<Line> findById(int id);
 }
