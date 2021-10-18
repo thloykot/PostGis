@@ -16,11 +16,11 @@ public class LineServiceImpl implements LineService {
 
     @Override
     public int save(Line line) {
-        return lineDao.save(line).getId();
+        return lineDao.save(line);
     }
 
     @Override
     public Optional<Line> find(int id) {
-        return Optional.of(lineDao.getById(id));
+        return lineDao.findById(id);
     }
 }
