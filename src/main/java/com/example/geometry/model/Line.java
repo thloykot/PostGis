@@ -9,10 +9,9 @@ import java.util.List;
 
 @AllArgsConstructor
 @Getter
-@Setter
 public class Line implements Serializable {
 
     private final int length;
 
-    private final List<Double> geometry;
+    private final String geometry;
 }
