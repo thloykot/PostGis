@@ -1,23 +1,17 @@
 package com.example.geometry.model;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.List;
 
-@Entity
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
-@Setter
 public class Line implements Serializable {
 
-    @Id
-    private int id;
+    private final int length;
 
-    private int length;
-
-    private String geometry;
-
+    private final String geometry;
 }
