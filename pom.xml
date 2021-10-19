@@ -99,7 +99,7 @@
                 <configuration>
                     <url>jdbc:postgresql://localhost:5432/geometry</url>
                     <username>postgres</username>
-                    <password>${env.STUDYDBPASS}</password>
+                    <password>34132</password>
                     <changeLogFile>
                         ./src/main/resources/db/migrations/master.xml
                     </changeLogFile>
@@ -133,7 +133,7 @@
                         </driver>
                         <url>jdbc:postgresql://localhost:5432/geometry</url>
                         <user>postgres</user>
-                        <password>${env.STUDYDBPASS}</password>
+                        <password>34132</password>
                     </jdbc>
                     <generator>
                         <database>
