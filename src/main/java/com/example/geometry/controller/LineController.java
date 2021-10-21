@@ -1,6 +1,7 @@
 package com.example.geometry.controller;
 
 import com.example.geometry.model.Line;
+import com.example.geometry.model.LineJson;
 import com.example.geometry.service.LineService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class LineController {
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Line> findById(@PathVariable("id") int id) {
+    public ResponseEntity<LineJson> findById(@PathVariable("id") int id) {
         return lineService.find(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 }
