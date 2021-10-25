@@ -1,13 +1,13 @@
 package com.example.geometry.dao;
 
-import com.example.geometry.model.Line;
+import com.example.geometry.model.LinePoJo;
 
 import java.util.Optional;
 
 
 public interface LineDao{
 
-    Integer save(Line line);
+    int save(LinePoJo linePoJo);
 
-    Optional<Line> findById(int id);
+    Optional<LinePoJo> findById(int id);
 }
