@@ -75,13 +75,7 @@
             <artifactId>jooq</artifactId>
             <version>3.14.9</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.jetbrains/annotations -->
-        <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>13.0</version>
-        </dependency>
-
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
     </dependencies>
 
     <build>
@@ -105,7 +99,7 @@
                 <configuration>
                     <url>jdbc:postgresql://localhost:5432/geometry</url>
                     <username>postgres</username>
-                    <password>34132</password>
+                    <password>${env.STUDYDBPASS}</password>
                     <changeLogFile>
                         ./src/main/resources/db/migrations/master.xml
                     </changeLogFile>
@@ -139,7 +133,7 @@
                         </driver>
                         <url>jdbc:postgresql://localhost:5432/geometry</url>
                         <user>postgres</user>
-                        <password>34132</password>
+                        <password>${env.STUDYDBPASS}</password>
                     </jdbc>
                     <generator>
                         <database>
