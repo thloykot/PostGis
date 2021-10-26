@@ -1,24 +1,20 @@
 package com.example.geometry.model;
 
-import com.example.geometry.model.customObject.MyCustomObject;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
+import lombok.Setter;
 
-import java.io.Serializable;
+import java.util.List;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @RequiredArgsConstructor
 @Getter
-public class Line implements Serializable {
+@Setter
+public class Line{
 
     private final int length;
 
-    private final MyCustomObject geometry;
+    private final List<List<Double>> coordinates;
 
-    @SneakyThrows
-    public Line(LinePoJo linePoJo){
-        this.length = linePoJo.getLength();
-        this.geometry = new ObjectMapper().readValue(linePoJo.getGeometry(),MyCustomObject.class);
-    }
 }
