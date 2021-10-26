@@ -8,9 +8,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.jooq.Converter;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Component
 public class CoordinateConverter implements Converter<LineEntity, Line> {
 
