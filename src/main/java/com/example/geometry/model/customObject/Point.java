@@ -9,9 +9,9 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Point {
 
-    private double x;
+    private final double x;
 
-    private double y;
+    private final double y;
 
     @Override
     public String toString() {

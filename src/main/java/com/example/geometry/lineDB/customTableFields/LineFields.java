@@ -1,7 +1,6 @@
 package com.example.geometry.lineDB.customTableFields;
 
 
-import com.example.geometry.model.Line;
 import org.jooq.Field;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
