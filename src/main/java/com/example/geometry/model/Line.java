@@ -1,16 +1,19 @@
 package com.example.geometry.model;
 
-import lombok.AllArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
-import java.io.Serializable;
 import java.util.List;
 
-@AllArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
+@RequiredArgsConstructor
 @Getter
-public class Line implements Serializable {
+@Setter
+public class Line{
 
     private final int length;
 
-    private final List<Double> geometry;
+    private final List<List<Double>> coordinates;
 }

@@ -1,6 +1,7 @@
 package com.example.geometry.controller;
 
 import com.example.geometry.model.Line;
+import com.example.geometry.model.LineEntity;
 import com.example.geometry.service.LineService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ public class LineController {
     private final LineService lineService;
 
     @PutMapping("/save")
-    public ResponseEntity<Integer> save(@RequestBody Line line) {
+    public ResponseEntity<Integer> save(@RequestBody LineEntity line) {
         return ResponseEntity.ok(lineService.save(line));
     }
 
