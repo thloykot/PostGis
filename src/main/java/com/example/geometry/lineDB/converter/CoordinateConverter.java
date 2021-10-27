@@ -21,7 +21,7 @@ public class CoordinateConverter implements Converter<LineEntity, Line> {
             return new Line(lineEntity.getLength(), objectMapper
                     .readValue(lineEntity.getCoordinates(), LineCoordinates.class).getCoordinates());
         } catch (JsonProcessingException e) {
-            log.info("Got exception {}",e);
+            log.info("Got exception 1");
         }
         return null;
     }
@@ -32,7 +32,7 @@ public class CoordinateConverter implements Converter<LineEntity, Line> {
             return new LineEntity(line.getLength(), objectMapper
                     .writeValueAsString(line.getCoordinates()));
         } catch (JsonProcessingException e) {
-            log.info("Got exception {}",e);
+            log.info("Got exception ");
         }
         return null;
     }

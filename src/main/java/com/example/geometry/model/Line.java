@@ -1,5 +1,6 @@
 package com.example.geometry.model;
 
+import com.example.geometry.model.customObject.Point;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -15,5 +16,6 @@ public class Line{
 
     private final int length;
 
-    private final List<List<Double>> coordinates;
+    private final List<Point> coordinates;
+
 }

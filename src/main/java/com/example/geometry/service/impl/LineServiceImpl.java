@@ -3,7 +3,6 @@ package com.example.geometry.service.impl;
 import com.example.geometry.dao.LineDao;
 import com.example.geometry.lineDB.converter.CoordinateConverter;
 import com.example.geometry.model.Line;
-import com.example.geometry.model.LineEntity;
 import com.example.geometry.service.LineService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +20,7 @@ public class LineServiceImpl implements LineService {
 
     @Override
 
-    public int save(LineEntity line) {
+    public int save(Line line) {
         log.info("Saving line");
         return lineDao.save(line);
     }
