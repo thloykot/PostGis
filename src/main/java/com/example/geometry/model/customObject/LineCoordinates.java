@@ -12,7 +12,7 @@ public class LineCoordinates {
 
     private List<List<Double>> coordinates;
 
-    public List<Point> getCoordinates() {
+    public List<Point> getPoints() {
         return coordinates.stream().map(doubles ->
                 new Point(doubles.get(0), doubles.get(1))).collect(Collectors.toList());
     }

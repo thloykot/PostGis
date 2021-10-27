@@ -22,9 +22,9 @@ public class LineDaoImpl implements LineDao {
 
     @Override
     public int save(Line line) {
-        Field<Object> coordinates = LineFields.coordinatesField(line);
+        String coordinates = line.getCoordinates().toString().replace("[","").replace("]","");
         return Objects.requireNonNull(dslContext.insertInto(LINE, LINE.GEOMETRY, LINE.LENGTH)
-                .values(coordinates, LineFields.lengthField(coordinates))
+                .values(LineFields.coordinatesField(coordinates), LineFields.lengthField(coordinates))
                 .returningResult(LINE.ID).fetchOne()).into(int.class);
     }
 
