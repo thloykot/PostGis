@@ -3,6 +3,7 @@ package com.example.geometry.service.impl;
 import com.example.geometry.dao.LineDao;
 import com.example.geometry.lineDB.converter.CoordinateConverter;
 import com.example.geometry.model.Line;
+import com.example.geometry.model.LineEntity;
 import com.example.geometry.service.LineService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class LineServiceImpl implements LineService {
     private final CoordinateConverter coordinateConverter;
 
     @Override
-    public int save(Line line) {
+    public int save(LineEntity line) {
         return lineDao.save(line);
     }
 

@@ -21,7 +21,7 @@ public class LineDaoImpl implements LineDao {
     private final DSLContext dslContext;
 
     @Override
-    public int save(Line line) {
+    public int save(LineEntity line) {
         Field<Object> coordinates = LineFields.coordinatesField(line);
         return Objects.requireNonNull(dslContext.insertInto(LINE, LINE.GEOMETRY, LINE.LENGTH)
                 .values(coordinates, LineFields.lengthField(coordinates))
