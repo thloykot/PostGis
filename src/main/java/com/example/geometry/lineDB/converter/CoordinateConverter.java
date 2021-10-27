@@ -5,9 +5,11 @@ import com.example.geometry.model.LineEntity;
 import com.example.geometry.model.customObject.LineCoordinates;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.jooq.Converter;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class CoordinateConverter implements Converter<LineEntity, Line> {
 
@@ -19,7 +21,7 @@ public class CoordinateConverter implements Converter<LineEntity, Line> {
             return new Line(lineEntity.getLength(), objectMapper
                     .readValue(lineEntity.getCoordinates(), LineCoordinates.class).getCoordinates());
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            log.info("Got exception {}",e);
         }
         return null;
     }
@@ -30,7 +32,7 @@ public class CoordinateConverter implements Converter<LineEntity, Line> {
             return new LineEntity(line.getLength(), objectMapper
                     .writeValueAsString(line.getCoordinates()));
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
+            log.info("Got exception {}",e);
         }
         return null;
     }

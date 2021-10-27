@@ -6,12 +6,14 @@ import com.example.geometry.model.Line;
 import com.example.geometry.model.LineEntity;
 import com.example.geometry.service.LineService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class LineServiceImpl implements LineService {
 
     private final LineDao lineDao;
@@ -20,11 +22,13 @@ public class LineServiceImpl implements LineService {
     @Override
 
     public int save(LineEntity line) {
+        log.info("Saving line");
         return lineDao.save(line);
     }
 
     @Override
     public Optional<Line> find(int id) {
+        log.info("Finding line by id:{}", id);
         return lineDao.findById(id).map(coordinateConverter::from);
     }
 }
