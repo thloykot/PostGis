@@ -24,8 +24,7 @@ public class LineServiceImpl implements LineService {
 
     @Override
     public int save(List<Point> points) {
-        int id = lineDao.save(points.stream()
-                .map(Point::toString).collect(Collectors.joining(", ")));
+        int id = lineDao.save(getCoordinateString(points));
         log.info("Saving line №{}", id);
         return id;
     }
@@ -34,5 +33,10 @@ public class LineServiceImpl implements LineService {
     public Optional<Line> find(int id) {
         log.info("Finding line by id:{}", id);
         return lineDao.findById(id).map(lineConverter::toLine);
+    }
+
+    private String getCoordinateString(List<Point> points) {
+        return points.stream()
+                .map(Point::toString).collect(Collectors.joining(", "));
     }
 }

@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -23,13 +24,16 @@ public class LineConverterImpl implements LineConverter {
     public Line toLine(LineEntity lineEntity) {
         try {
             return new Line(lineEntity.getLength(),
-                    objectMapper.readValue(lineEntity.getCoordinates(), LineCoordinates.class)
-                            .getCoordinates().stream().filter(doubles -> doubles.size() == 2)
-                            .map(doubles -> new Point(doubles.get(0), doubles.get(1))).collect(Collectors.toUnmodifiableList()));
+                    streamLine(objectMapper.readValue(lineEntity.getCoordinates(), LineCoordinates.class).getCoordinates()));
         } catch (JsonProcessingException e) {
             log.error("Mapping error!", e);
             return null;
         }
+    }
+
+    private List<Point> streamLine(List<List<Double>> coordinates) {
+        return coordinates.stream().filter(doubles -> doubles.size() == 2)
+                .map(doubles -> new Point(doubles.get(0), doubles.get(1))).collect(Collectors.toUnmodifiableList());
     }
 
 }
