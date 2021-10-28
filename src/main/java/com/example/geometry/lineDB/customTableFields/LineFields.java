@@ -5,8 +5,6 @@ import org.jooq.Field;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 
-import static org.jooq.generatedDB.tables.Line.LINE;
-
 public class LineFields {
 
     public static Field<Object> coordinatesField(String geometry) {
@@ -18,6 +16,6 @@ public class LineFields {
     }
 
     public static Field<String> getGeometrySelectField() {
-        return DSL.field("ST_AsGeoJSON(geometry)", String.class, LINE.GEOMETRY);
+        return DSL.field("ST_AsGeoJSON(geometry)", String.class);
     }
 }

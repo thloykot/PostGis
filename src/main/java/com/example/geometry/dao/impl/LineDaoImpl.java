@@ -2,7 +2,6 @@ package com.example.geometry.dao.impl;
 
 import com.example.geometry.dao.LineDao;
 import com.example.geometry.lineDB.customTableFields.LineFields;
-import com.example.geometry.model.Line;
 import com.example.geometry.model.LineEntity;
 import lombok.AllArgsConstructor;
 import org.jooq.DSLContext;
@@ -20,8 +19,7 @@ public class LineDaoImpl implements LineDao {
     private final DSLContext dslContext;
 
     @Override
-    public int save(Line line) {
-        String coordinates = line.getCoordinates().toString().replace("[", "").replace("]", "");
+    public int save(String coordinates) {
         return Objects.requireNonNull(dslContext.insertInto(LINE, LINE.GEOMETRY, LINE.LENGTH)
                 .values(LineFields.coordinatesField(coordinates), LineFields.lengthField(coordinates))
                 .returningResult(LINE.ID).fetchOne()).into(int.class);
