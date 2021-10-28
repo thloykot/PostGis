@@ -3,7 +3,7 @@ package com.example.geometry.dao.impl;
 import com.example.geometry.dao.LineDao;
 import com.example.geometry.lineDB.customTableFields.LineFields;
 import com.example.geometry.model.LineEntity;
-import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.jooq.DSLContext;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +13,7 @@ import java.util.Optional;
 import static org.jooq.generatedDB.tables.Line.LINE;
 
 @Repository
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class LineDaoImpl implements LineDao {
 
     private final DSLContext dslContext;

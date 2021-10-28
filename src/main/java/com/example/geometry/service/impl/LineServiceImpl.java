@@ -24,9 +24,10 @@ public class LineServiceImpl implements LineService {
 
     @Override
     public int save(List<Point> points) {
-        log.info("Saving line");
-        return lineDao.save(points.stream()
+        int id = lineDao.save(points.stream()
                 .map(Point::toString).collect(Collectors.joining(", ")));
+        log.info("Saving line №{}", id);
+        return id;
     }
 
     @Override

@@ -1,12 +1,12 @@
 package com.example.geometry.model;
 
 import com.example.geometry.model.customObject.Point;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 public class Line {
 
