@@ -2,12 +2,10 @@ package com.example.geometry;
 
 import com.example.geometry.dao.LineDao;
 import com.example.geometry.lineDB.converter.LineConverter;
-import com.example.geometry.lineDB.converter.impl.LineConverterImpl;
 import com.example.geometry.model.Line;
 import com.example.geometry.model.LineEntity;
 import com.example.geometry.model.customObject.Point;
 import com.example.geometry.service.impl.LineServiceImpl;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -36,7 +34,6 @@ class GeometryApplicationTests {
     private LineConverter lineConverter;
 
 
-
     private static final List<Point> POINT_LIST = List.of(new Point(3.4, 54.5), new Point(87.4, 392.5));
     private static final int ID = 1;
     private static final String COORDINATES = "3.4 54.5, 87.4 392.5";
@@ -45,7 +42,6 @@ class GeometryApplicationTests {
     @Test
     void testSave() {
 
-        when(lineService.save(POINT_LIST)).thenReturn(ID);
         when(lineDao.save(COORDINATES)).thenReturn(ID);
 
         assertThat(lineDao.save(COORDINATES), is(ID));
