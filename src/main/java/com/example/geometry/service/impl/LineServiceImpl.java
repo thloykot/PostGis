@@ -1,7 +1,7 @@
 package com.example.geometry.service.impl;
 
 import com.example.geometry.dao.LineDao;
-import com.example.geometry.lineDB.converter.impl.LineConverterImpl;
+import com.example.geometry.lineDB.converter.LineConverter;
 import com.example.geometry.model.Line;
 import com.example.geometry.model.customObject.Point;
 import com.example.geometry.service.LineService;
@@ -20,7 +20,7 @@ public class LineServiceImpl implements LineService {
 
     private final LineDao lineDao;
 
-    private final LineConverterImpl lineConverter;
+    private final LineConverter lineConverter;
 
     @Override
     public int save(List<Point> points) {
