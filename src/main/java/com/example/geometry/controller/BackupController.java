@@ -1,7 +1,6 @@
 package com.example.geometry.controller;
 
 import com.example.geometry.aws.S3Backup;
-import com.example.geometry.service.BackupService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,13 +17,15 @@ public class BackupController {
     private final S3Backup s3Backup;
 
     @GetMapping("/backup")
-    public ResponseEntity<String> backup(){
-        try {
-            return ResponseEntity.ok(s3Backup.s());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return ResponseEntity.badRequest().build();
+    public ResponseEntity<String> backup() {
+            return s3Backup.makeBackup().map(ResponseEntity::ok)
+                    .orElseGet(() -> ResponseEntity.noContent().build());
+    }
+
+    @GetMapping("/restore")
+    public ResponseEntity<String> restore() {
+        return s3Backup.restore().map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.noContent().build());
     }
 
 }
