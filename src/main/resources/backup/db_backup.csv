@@ -1,2 +1,0 @@
-id,length,ST_AsGeoJSON(geometry)
-60,2398118,"{""type"":""LineString"",""coordinates"":[[23321.4,512412],[2421423,521414]]}"
