@@ -56,7 +56,8 @@ class GeometryApplicationTests {
         when(lineDao.findById(ID)).thenReturn(Optional.of(lineEntity));
         when(lineConverter.toLine(lineEntity)).thenReturn(line);
 
-        assertThat(lineService.find(ID), is(Optional.of(line)));
+        assertThat(lineService.find(ID).isPresent(), is(true));
+        assertThat(lineService.find(ID).get(), is(line));
     }
 
 }
