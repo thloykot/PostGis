@@ -1,10 +1,10 @@
 package com.example.geometry.service;
 
-import java.io.IOException;
+import java.util.Optional;
 
 public interface BackupService {
 
-    String makeCSVFile() throws IOException;
+    Optional<String> makeCSVFile();
 
-    int restore(String data) throws IOException;
+    int restore();
 }

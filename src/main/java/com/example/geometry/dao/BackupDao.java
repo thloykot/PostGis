@@ -1,10 +1,12 @@
 package com.example.geometry.dao;
 
-import java.io.IOException;
+import com.example.geometry.dto.LineDto;
+
+import java.util.List;
 
 public interface BackupDao {
 
     String getLines();
 
-    int restore(String data) throws IOException;
+    int restore(List<LineDto> lineDtos);
 }
