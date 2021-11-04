@@ -1,11 +1,12 @@
 package com.example.geometry;
 
 import com.example.geometry.dao.LineDao;
-import com.example.geometry.lineDB.converter.LineConverter;
+import com.example.geometry.lineDB.converter.LineCoordinatesConverter;
 import com.example.geometry.model.Line;
 import com.example.geometry.model.LineEntity;
 import com.example.geometry.model.customObject.Point;
 import com.example.geometry.service.impl.LineServiceImpl;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -31,7 +32,7 @@ class GeometryApplicationTests {
     private LineDao lineDao;
 
     @Mock
-    private LineConverter lineConverter;
+    private LineCoordinatesConverter lineCoordinatesConverter;
 
 
     private static final List<Point> POINT_LIST = List.of(new Point(3.4, 54.5), new Point(87.4, 392.5));
@@ -49,12 +50,12 @@ class GeometryApplicationTests {
     }
 
     @Test
-    void testFind() {
+    void testFind() throws JsonProcessingException {
         Line line = new Line(11, POINT_LIST);
-        LineEntity lineEntity = new LineEntity(line.getLength(), COORDINATES);
+        LineEntity lineEntity = new LineEntity(0,line.getLength(), COORDINATES);
 
         when(lineDao.findById(ID)).thenReturn(Optional.of(lineEntity));
-        when(lineConverter.toLine(lineEntity)).thenReturn(line);
+        when(lineCoordinatesConverter.toLine(lineEntity)).thenReturn(line);
 
         assertThat(lineService.find(ID).isPresent(), is(true));
         assertThat(lineService.find(ID).get(), is(line));

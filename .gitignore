@@ -33,5 +33,4 @@ build/
 .vscode/
 mvnw
 .mvn/wrapper
-mvnw.cmd 
-src/main/resources/backup/db_backup.csv
+mvnw.cmd
