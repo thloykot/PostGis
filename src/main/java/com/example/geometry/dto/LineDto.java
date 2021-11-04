@@ -3,16 +3,16 @@ package com.example.geometry.dto;
 import com.example.geometry.model.customObject.Point;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
 import java.util.List;
 
-@Getter
-@RequiredArgsConstructor
+@Value
 public class LineDto {
 
-    private final int id;
+    int id;
 
-    private final int length;
+    int length;
 
-    private final List<Point> coordinates;
+    List<Point> coordinates;
 }
