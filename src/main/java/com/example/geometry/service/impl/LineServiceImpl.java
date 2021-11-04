@@ -1,27 +1,42 @@
 package com.example.geometry.service.impl;
 
 import com.example.geometry.dao.LineDao;
+import com.example.geometry.lineDB.converter.LineConverter;
 import com.example.geometry.model.Line;
-import com.example.geometry.model.LineJson;
+import com.example.geometry.model.customObject.Point;
 import com.example.geometry.service.LineService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class LineServiceImpl implements LineService {
 
     private final LineDao lineDao;
 
+    private final LineConverter lineConverter;
+
     @Override
-    public int save(Line line) {
-        return lineDao.save(line);
+    public int save(List<Point> points) {
+        int id = lineDao.save(getCoordinateString(points));
+        log.info("Saving line №{}", id);
+        return id;
     }
 
     @Override
-    public Optional<LineJson> find(int id) {
-        return lineDao.findById(id).map(Line::toLineJson);
+    public Optional<Line> find(int id) {
+        log.info("Finding line by id:{}", id);
+        return lineDao.findById(id).map(lineConverter::toLine);
+    }
+
+    private String getCoordinateString(List<Point> points) {
+        return points.stream()
+                .map(Point::toString).collect(Collectors.joining(", "));
     }
 }
