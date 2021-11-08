@@ -58,7 +58,7 @@ public class LineServiceImpl implements LineService {
     public void backupLineData() throws IOException {
         String lineData = lineDao.getLinesCsv();
         File backupFile = new File(PATH);
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(backupFile))) {
+        try (FileWriter fileWriter = new FileWriter(backupFile); BufferedWriter writer = new BufferedWriter(fileWriter)) {
             writer.write(lineData);
             amazonS3Service.uploadFile(LINE_BUCKET_NAME, backupFile);
 
