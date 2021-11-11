@@ -71,11 +71,13 @@
             <version>1.3</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3 -->
         <dependency>
             <groupId>com.amazonaws</groupId>
-            <artifactId>aws-java-sdk</artifactId>
-            <version>1.12.99</version>
+            <artifactId>aws-java-sdk-s3</artifactId>
+            <version>1.12.105</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -99,7 +101,7 @@
                 <configuration>
                     <url>jdbc:postgresql://localhost:5432/geometry</url>
                     <username>postgres</username>
-                    <password>${env.STUDYDBPASS}</password>
+                    <password>34132</password>
                     <changeLogFile>
                         ./src/main/resources/db/migrations/master.xml
                     </changeLogFile>
@@ -146,7 +148,16 @@
                     </generator>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
         </plugins>
+        <finalName>Geometry</finalName>
     </build>
 
 </project>

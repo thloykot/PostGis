@@ -7,6 +7,7 @@ import com.example.geometry.model.LineEntity;
 import com.example.geometry.model.customObject.Point;
 import com.example.geometry.service.impl.LineServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -21,6 +22,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 
+@Ignore
 @SpringBootTest(classes = {GeometryApplication.class})
 @RunWith(MockitoJUnitRunner.class)
 class GeometryApplicationTests {
