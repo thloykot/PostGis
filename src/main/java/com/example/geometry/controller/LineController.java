@@ -20,6 +20,11 @@ public class LineController {
 
     private final LineService lineService;
 
+    @GetMapping("/hello")
+    public ResponseEntity<String> ss(){
+        return ResponseEntity.ok("hello");
+    }
+
     @PutMapping("/save")
     public ResponseEntity<Integer> save(@RequestBody List<Point> points) {
         return ResponseEntity.ok(lineService.save(points));
