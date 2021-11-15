@@ -1,13 +1,13 @@
 package com.example.geometry.model;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
-@Getter
-@RequiredArgsConstructor
+@Value
 public class LineEntity {
 
-    private final int length;
+    int id;
 
-    private final String coordinates;
+    int length;
+
+    String coordinates;
 }
