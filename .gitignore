@@ -34,3 +34,6 @@ build/
 mvnw
 .mvn/wrapper
 mvnw.cmd
+/metrics/grafana/provisioning/
+/metrics/grafana/grafana.db
+/metrics/prometheus/
