@@ -2,7 +2,7 @@ management:
   endpoints:
     web:
       exposure:
-        include: health,prometheus
+        include: "*"
   metrics:
     export:
       prometheus:
@@ -10,3 +10,5 @@ management:
     distribution:
       percentiles-histogram:
         "[http.server.requests]": true
+    enable:
+      all: true
