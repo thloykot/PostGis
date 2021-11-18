@@ -9,6 +9,7 @@ import com.example.geometry.model.customObject.Point;
 import com.example.geometry.service.AmazonS3Service;
 import com.example.geometry.service.LineService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import io.micrometer.core.annotation.Timed;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
